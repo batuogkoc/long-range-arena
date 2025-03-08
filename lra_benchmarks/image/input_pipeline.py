@@ -13,7 +13,7 @@
 # limitations under the License.
 """Functions to get dataset pipeline for the image cls tasks."""
 
-from lra_benchmarks.data import pathfinder
+from ..data import pathfinder
 import tensorflow.compat.v1 as tf
 import tensorflow_datasets as tfds
 
@@ -44,7 +44,7 @@ def get_mnist_datasets(n_devices, batch_size=256, normalize=False):
   val_dataset = val_dataset.map(decode, num_parallel_calls=AUTOTUNE)
   test_dataset = test_dataset.map(decode, num_parallel_calls=AUTOTUNE)
 
-  train_dataset = train_dataset.repeat()
+  # train_dataset = train_dataset.repeat()
   train_dataset = train_dataset.batch(batch_size, drop_remainder=True)
   val_dataset = val_dataset.batch(batch_size, drop_remainder=True)
   test_dataset = test_dataset.batch(batch_size, drop_remainder=True)
@@ -81,7 +81,7 @@ def get_cifar10_datasets(n_devices, batch_size=256, normalize=False):
   val_dataset = val_dataset.map(decode, num_parallel_calls=AUTOTUNE)
   test_dataset = test_dataset.map(decode, num_parallel_calls=AUTOTUNE)
 
-  train_dataset = train_dataset.repeat()
+  # train_dataset = train_dataset.repeat()
   train_dataset = train_dataset.batch(batch_size, drop_remainder=True)
   val_dataset = val_dataset.batch(batch_size, drop_remainder=True)
   test_dataset = test_dataset.batch(batch_size, drop_remainder=True)
@@ -128,7 +128,7 @@ def get_pathfinder_orig_datasets(n_devices, batch_size=256, normalize=False):
   val_dataset = val_dataset.map(decode, num_parallel_calls=AUTOTUNE)
   test_dataset = test_dataset.map(decode, num_parallel_calls=AUTOTUNE)
 
-  train_dataset = train_dataset.repeat()
+  # train_dataset = train_dataset.repeat()
   train_dataset = train_dataset.batch(batch_size, drop_remainder=True)
   val_dataset = val_dataset.batch(batch_size, drop_remainder=True)
   test_dataset = test_dataset.batch(batch_size, drop_remainder=True)
@@ -194,7 +194,7 @@ def get_pathfinder_base_datasets(n_devices,
   val_dataset = val_dataset.map(decode, num_parallel_calls=AUTOTUNE)
   test_dataset = test_dataset.map(decode, num_parallel_calls=AUTOTUNE)
 
-  train_dataset = train_dataset.repeat()
+  # train_dataset = train_dataset.repeat()
   train_dataset = train_dataset.batch(batch_size, drop_remainder=True)
   val_dataset = val_dataset.batch(batch_size, drop_remainder=True)
   test_dataset = test_dataset.batch(batch_size, drop_remainder=True)
